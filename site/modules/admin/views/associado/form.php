@@ -69,7 +69,6 @@
 			<th valign="top">Marca:</th>
 			<td>
 				<imageupload
-				required
 				label="Marca"
 				id="marca"
 				name="marca" 
@@ -90,7 +89,7 @@
 		</tr>
 		
 		
-		<tr>
+		<!--<tr>
 			<th valign="top">Projetos</th>
 			<td>
 				<textarea editor label="Projetos" name="projetos" id="projetos">
@@ -98,7 +97,7 @@
 				</textarea>
 			</td>
 			<td></td>
-		</tr>
+		</tr>-->
 		
 		<tr>
 			<th valign="top">Endereço</th>

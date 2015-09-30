@@ -82,7 +82,7 @@
 			<th valign="top">Imagem:</th>
 			<td>
 				<imageupload
-				required
+				
 				label="Imagem"
 				id="imagem"
 				name="imagem" 

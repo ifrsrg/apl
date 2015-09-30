@@ -19,7 +19,6 @@
                         <h3>Contato</h3>
                         <p>{associado_contato}<br />{associado_contato_email}<br />{associado_contato_telefone}</p>
                         {associado_endereco}
-                        <map value="{associado_coordenadas}" width="500" height="116">
                     </div>
                     <div class="col-img">
                         <img src="{associado_marca}">

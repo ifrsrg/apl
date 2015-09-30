@@ -6,7 +6,7 @@
         <section>
             <div class="col">
                 <h1><b>Notícias</b></h1>                
-                {texto_subtitulo_noticia}
+                <br>
             </div>
         </section>
 
@@ -16,9 +16,10 @@
                     <!-- BEGIN NOTICIAS -->
                     <li class="col-2 center">
                         <a href="{live}/noticias/acao/detalhe/id/{noticia_id}">
-                            <img src="{noticia_marca}">
+                            <img src="{noticia_marca}" width="250">
                             <h3>{noticia_nome}</h3>
                             <p>{noticia_texto}</p>
+                           
                         </a>
                     </li>
                     <!-- BEGIN NOTICIA_BREAK -->

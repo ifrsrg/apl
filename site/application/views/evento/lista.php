@@ -7,6 +7,7 @@
             <div class="col">
                 <h1>Eventos</h1>                
                 {texto_subtitulo_evento}
+                <br>
             </div>
         </section>
 
@@ -16,7 +17,7 @@
                     <!-- BEGIN EVENTOS -->
                     <li class="col-2 center">
                         <a href="{live}/eventos/acao/detalhe/id/{evento_id}">
-                            <img src="{evento_marca}">
+                            <img src="{evento_marca}" width="250">
                             <h3>{evento_nome}</h3>
                             <p>{evento_texto}</p>
                         </a>
