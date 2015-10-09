@@ -18,8 +18,8 @@
                         <a href="{live}/noticias/acao/detalhe/id/{noticia_id}">
                             <img src="{noticia_marca}" width="250">
                             <h3>{noticia_nome}</h3>
+                            <h5>{data}</h5>
                             <p>{noticia_texto}</p>
-                           
                         </a>
                     </li>
                     <!-- BEGIN NOTICIA_BREAK -->

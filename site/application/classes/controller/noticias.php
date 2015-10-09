@@ -21,7 +21,7 @@ class Controller_Noticias extends ControllerFront {
 			$view->tpl->noticia_nome = $noticia->titulo;
 			$view->tpl->noticia_marca = Utils::getScaledPath("noticia", $noticia->id_noticia);
 			$view->tpl->noticia_texto = $noticia->texto_lista;
-
+			$view->tpl->data = date("d/m/Y",strtotime($noticia->data));
 			if(!(($k+1)%3))
 				$view->tpl->parseBlock("NOTICIA_BREAK");
 
@@ -98,6 +98,8 @@ class Controller_Noticias extends ControllerFront {
         $view->tpl->titulo = $noticia->titulo;
         $view->tpl->imagem = $noticia->imagem;
         $view->tpl->texto = $noticia->texto;
+        $view->tpl->data = date("d/m/Y",strtotime($noticia->data));
+
         
         $usuario = ORM::factory("usuario");
         $usuario->loadLogado();
