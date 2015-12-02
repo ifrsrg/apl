@@ -9,24 +9,36 @@ class Controller_noticia extends ControllerAdmin {
 		
 		$column_label = array("ID",'Data',"Título","Texto da Chamada", "Imagem"),
 		$column_fields = array("id_noticia",),
-		$field_set = array("id_noticia","data","titulo","texto","texto_lista","imagem");
-        
+		$field_set = array("id_noticia","data","titulo","texto","texto_lista","imagem"),
+                $ordem = "";
         function __construct($request, $response){
                 parent::__construct($request, $response);
                 $this->obj = ORM::factory($this->model_name,$this->request->param("id",$this->request->post("id")));
+                $this->ordem = $this->request->query("ordem");
         }
         
         public function action_listar()
         {
                 $paginacao = new Paginacao("admin/".$this->url_path."/", 15, $this->obj->getCount());
-                
-                $rows = $this->obj->getLista(array(),$paginacao->limit,$paginacao->offset,array(array($this->id_field, "asc")));
-                
+                if($this->ordem == "01") {
+                        $rows = $this->obj->getLista(array(),$paginacao->limit,$paginacao->offset,array(array("data", "asc")));
+                        $options = "<option value = '01' selected>Da mais antiga para a mais recente</option><option value = '10' >Da mais recente para a mais antiga</option>";
+                }
+                if($this->ordem == "10") {
+                        $rows = $this->obj->getLista(array(),$paginacao->limit,$paginacao->offset,array(array("data", "desc")));
+                        $options = "<option value = '01'>Da mais recente para a mais antiga</option><option value = '10' selected>Da mais recente para a mais antiga</option>";
+                }
+                if($this->ordem != "01" && $this->ordem != "10") {
+                        $rows = $this->obj->getLista(array(),$paginacao->limit,$paginacao->offset,array(array($this->id_field, "asc")));
+                        $options = "<option value = '01' >Da mais recente para a mais antiga</option><option value = '10' >Da mais antiga para a mais recente</option>";
+                }
+
                 $view = ViewTemplateAdmin::factory($this->controller_name."/listar", $this->usuario);
                 
                 $view->tpl->titulo_pagina = $this->titulo_pagina;
                 $view->tpl->url_path = $this->url_path;
                 $view->tpl->paginacao = $paginacao;
+                $view->tpl->options = $options;
                 
         		foreach ($this->column_label as $k => $column) {
         				if($k == 0) {

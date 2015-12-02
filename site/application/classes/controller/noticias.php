@@ -14,7 +14,12 @@ class Controller_Noticias extends ControllerFront {
 	}
 	
 	private function preencheNoticias($view) {
-		$noticias = ORM::factory("noticia")->getLista(array(),6,0,array(array("data","desc")));
+		
+        $q = $this->request->query("q");
+        $view->tpl->q = $q;
+
+
+		$noticias = ORM::factory("noticia")->where("titulo",  "like", "%$q%")->getLista(array(),6,0,array(array("data","desc")));
 		$i = 1;
 		foreach($noticias as $k => $noticia) {
 			$view->tpl->noticia_id = $noticia->id_noticia;
@@ -57,17 +62,20 @@ class Controller_Noticias extends ControllerFront {
         $this->preencheTextoLayout($view);
         
 		$this->response->body($view);
+
+		
 	}
 	
 	public function action_paging() {
 		$offset = $_POST["offset"];
-		
+		$q = $_POST["q"];
+		//echo var_dump($q);
 		$resultset = array(
 			"news" => array(),
 			"remaining" => ORM::factory("noticia")->getCount()-$offset
 		);
 		
-		$noticias = ORM::factory("noticia")->getLista(array(),6,$offset,array(array("data","desc")));
+		$noticias = ORM::factory("noticia")->where("titulo",  "like", "%$q%")->getLista(array(),6,$offset,array(array("data","desc")));
 		
 		foreach ($noticias as $noticia) {
 			$resultset["news"][] = array(

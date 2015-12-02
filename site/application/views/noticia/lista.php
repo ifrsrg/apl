@@ -3,9 +3,17 @@
                 <img src="{live}/media/front/img/01-interna.jpg">
             </div>
         </div>
-        <section>
+        <section style="margin-bottom: 10px;">
             <div class="col">
-                <h1><b>Notícias</b></h1>                
+                <h1 style="display:inline-block;">
+                    <b>Notícias</b>
+                </h1> 
+                <form method="get"  style="float:right; "> 
+                    <input name="q" type="text" size="30" 
+                        maxlength="30" placeholder="busca por palavra-chave" 
+                        title="Parte do titulo ou texto da noticia" value="{q}">
+                    <input type="submit" value="buscar">
+                </form>   
                 <br>
             </div>
         </section>
@@ -32,5 +40,5 @@
         </section>
 
         <!-- BEGIN MORE_NEWS -->
-        <a class="bt-more-news" offset="6" href="#"><span>mais notícia</span></a>
+        <a class="bt-more-news" offset="6" q="{q}" href="#"><span>mais notícia</span></a>
         <!-- END MORE_NEWS -->

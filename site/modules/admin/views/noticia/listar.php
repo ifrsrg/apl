@@ -22,11 +22,17 @@
 	<td id="tbl-border-left"></td>
 	<td>
 	<!--  start content-table-inner ...................................................................... START -->
-	<div id="content-table-inner">
-
+	<div id="content-table-inner">	
+	<form>
+	<label>Ordenar data por:</label>
+		<select name="ordem" onchange="this.form.submit()">
+			<option>Selecione</option>
+			{options}
+		</select>
+	</form>
 		<div id="table-content">
-		
-		
+		<br>
+			
 			<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
 			<tr>
 				<!-- BEGIN HEADER -->
